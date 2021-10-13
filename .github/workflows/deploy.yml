@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       AWS_S3_BUCKET_NAME: dianne-fe
-      AWS_CF_DISTRIBUTION_ID: E1J3VDQ3CVKWG2
+      AWS_CF_DISTRIBUTION_ID: E17ZSM49DBGPEU
     # Here we are configuring build matrix that allows you to perform certain operations on your code
     # with different software/Operating system configurations.
     # In our case, we are only running it for Node v12.*. but you can multiple entries in that array.
@@ -62,7 +62,7 @@ jobs:
         uses: chetan/invalidate-cloudfront-action@v2
         env:
           DISTRIBUTION: ${{ env.AWS_CF_DISTRIBUTION_ID }}
-          PATHS: '/'
+          PATHS: '/*'
           AWS_REGION: 'ap-southeast-1'
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
